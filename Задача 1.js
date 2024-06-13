@@ -1,24 +1,21 @@
-
-function isPrime(num) {
-    if (num <= 1 || num > 1000) {
-        console.log("Данные неверны. Пожалуйста, введите число от 2 до 1000.");
-        return;
-    }
-
-    for (let i = 2; i <= Math.sqrt(num); i++) {
-        if (num % i === 0) {
-            console.log(`${num} не является простым числом.`);
-            return;
+const evenOddLog = (numbers) => {
+    let even = [];
+    let odd = [];
+    let zero = [];
+    for (let i = 0; i < numbers.length; i++) {
+        if (typeof numbers[i] === "number" && !isNaN(numbers[i])) {
+            if (numbers[i] === 0) {
+                zero.push(numbers[i]);
+            } else if (numbers[i] % 2 === 0) {
+                even.push(numbers[i]);
+            } else {
+                odd.push(numbers[i]);
+            }
         }
     }
-
-    console.log(`${num} является простым числом.`);
+    console.log("Отдельный вывод " + zero);
+    console.log("Количество чётных элементов: " + even.length);
+    console.log("Количество нечётных элементов: " + odd.length);
 }
-isPrime(6)
 
-
-
-// git checkout -b main
-
-
-git add .
+console.log(evenOddLog([3,4,5,6,7,8,0]))
